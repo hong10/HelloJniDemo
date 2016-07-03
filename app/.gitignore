@@ -14,7 +14,7 @@ gen/
 build/
 
 */build
-*/.idea
+*/.idea/
 */gen
 */.settings
 
