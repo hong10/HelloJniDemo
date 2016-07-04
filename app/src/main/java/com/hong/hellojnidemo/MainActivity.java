@@ -1,5 +1,6 @@
 package com.hong.hellojnidemo;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,8 +15,11 @@ public class MainActivity extends AppCompatActivity {
 
     public native String helloJni();
 
+    private TransportData transportData;
+
     static {
         System.loadLibrary("hello");
+        System.loadLibrary("transport");
     }
 
     @Override
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        transportData = new TransportData();
 
     }
 
@@ -30,4 +35,26 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, helloJni(), Toast.LENGTH_LONG).show();
     }
 
+    public void CAdd(View view) {
+        int result = transportData.add(3, 6);
+        toast(this, "result = " + result);
+    }
+
+    public void CString(View view) {
+        String msg = transportData.sayHelloInC("hong");
+        toast(this, msg);
+    }
+
+    public void CArray(View view) {
+        int[] array = {1, 2, 3, 4, 5};
+        transportData.inMethod(array);
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("java " + array[i]);
+        }
+
+    }
+
+    private void toast(Context context, String msg) {
+        Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+    }
 }

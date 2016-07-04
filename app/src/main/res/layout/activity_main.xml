@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
@@ -12,5 +13,23 @@
         android:layout_height="wrap_content"
         android:onClick="callbackC"
         android:text="callbackC" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="CAdd"
+        android:text="C_add" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="CString"
+        android:text="C_String" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="CArray"
+        android:text="C_array" />
 
 </LinearLayout>
