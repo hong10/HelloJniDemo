@@ -16,10 +16,12 @@ public class MainActivity extends AppCompatActivity {
     public native String helloJni();
 
     private TransportData transportData;
+    private CcallbackJavaMethod ccallbackJavaMethod;
 
     static {
         System.loadLibrary("hello");
         System.loadLibrary("transport");
+        System.loadLibrary("callback_java_method");
     }
 
     @Override
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         transportData = new TransportData();
+        ccallbackJavaMethod = new CcallbackJavaMethod();
 
     }
 
@@ -56,5 +59,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void toast(Context context, String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+    }
+
+
+    public void click1(View view) {
+        ccallbackJavaMethod.callMethod1();//查看log
+
     }
 }

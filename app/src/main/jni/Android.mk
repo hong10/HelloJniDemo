@@ -23,3 +23,17 @@ LOCAL_LDLIBS += -llog
 #liblog.so
 
 include $(BUILD_SHARED_LIBRARY)
+
+#------------------------
+
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE:= callback_java_method
+LOCAL_SRC_FILES:= callback_java_method.c
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)
+LOCAL_LDLIBS += -llog
+#把c语言调用的log函数对应的函数库加入到编译的运行时里面
+#liblog.so
+
+include $(BUILD_SHARED_LIBRARY)
